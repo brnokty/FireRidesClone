@@ -6,17 +6,25 @@ public class BlockController : MonoBehaviour
 {
     [SerializeField] private List<Block> _blocks = new List<Block>();
     [SerializeField] private Vector2 yMinMax = new Vector2(-0.2f, 0.2f);
+    [SerializeField] Color ColorOne = Color.blue;
+    [SerializeField] Color ColorTwo = Color.cyan;
     private int lastBlock = 0;
 
     void Start()
     {
+        for (int i = 0; i < _blocks.Count; i++)
+        {
+            if (_blocks[i].index % 2 == 0)
+            {
+                _blocks[i].SetColor(ColorOne);
+            }
+            else
+            {
+                _blocks[i].SetColor(ColorTwo);
+            }
+        }
     }
-
-
-    void Update()
-    {
-    }
-
+    
 
     public Transform GetNearHook(Transform player)
     {

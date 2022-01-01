@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6706676726130899917}
   m_Layer: 0
   m_Name: CubeDown
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 7355637632821740533}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 8615376880900123266}
   m_Layer: 0
   m_Name: CubeUp
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 4097732134337184180}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -546,6 +546,4 @@ MonoBehaviour:
   - {fileID: 2903535200659098826}
   - {fileID: 5669703894800077199}
   hookPoint: {fileID: 3653403052890259231}
-  ColorOne: {r: 0.050980393, g: 0.27450982, b: 0.42352942, a: 1}
-  ColorTwo: {r: 0.30588236, g: 0.5137255, b: 0.6509804, a: 1}
   index: 0

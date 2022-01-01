@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // transform.rotation = Quaternion.Euler(Vector3.zero);
         if (Input.GetMouseButtonDown(0))
         {
             ResetLine();
@@ -31,11 +34,15 @@ public class PlayerController : MonoBehaviour
                 // joint.anchor = new Vector3(0, Vector3.Distance(transform.position, target.position), 0);
                 print("target-" + target.position + "\nPlayer-" + transform.position + "\nLocal-" +
                       (target.position - transform.position));
-                joint.anchor = target.position - transform.position;
                 joint.axis = new Vector3(0, 0, 1);
                 joint.connectedBody = target.GetComponent<Rigidbody>();
+                joint.anchor = target.position - transform.position;
+                // joint.anchor = target.position - transform.position - joint.connectedAnchor;
+                // joint.anchor = new Vector3(target.position.x, target.position.y * 0.5f, 0);
                 joint.connectedAnchor = Vector3.zero;
-                joint.connectedMassScale = 10f;
+                // joint.enableCollision = true;
+                // joint.enablePreprocessing = false;
+                joint.connectedMassScale = 100f;
             });
             _rigidbody.isKinematic = false;
         }
@@ -44,6 +51,11 @@ public class PlayerController : MonoBehaviour
         {
             _lineRenderer.SetPosition(0, transform.position);
             _lineRenderer.SetPosition(1, targetPos);
+
+            if (joint != null)
+            {
+                joint.anchor = target.position - transform.position;
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -62,5 +74,14 @@ public class PlayerController : MonoBehaviour
 
         if (joint != null)
             Destroy(joint);
+    }
+
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Block"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
