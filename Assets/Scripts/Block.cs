@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    #region Inspector Variables
+
     [SerializeField] private List<MeshRenderer> _renderers = new List<MeshRenderer>();
-
     public Transform hookPoint;
-    public int index = 0;
 
+    #endregion
+
+    #region Public Variables
+
+    [HideInInspector] public int index = 0;
+
+    #endregion
+
+    #region Public Methods
 
     public void SetColor(Color color)
     {
@@ -17,4 +26,6 @@ public class Block : MonoBehaviour
             _renderers[i].material.color = color;
         }
     }
+
+    #endregion
 }
